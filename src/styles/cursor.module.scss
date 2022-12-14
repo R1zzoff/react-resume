@@ -1,0 +1,48 @@
+@import './variables.scss';
+
+.cursor
+{
+    position: absolute;
+
+    width: $cursorSize;
+    height: $cursorSize;
+
+    top: -30px;
+    left: -30px;
+
+    z-index: 10;
+
+    background-color: var(--bgElement1);
+    mask-image: url('../../public/cursor.svg');
+    mask-repeat: no-repeat;
+    mask-size: $cursorSize auto;
+
+    animation-duration: 1s;
+    animation-direction: normal;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+
+    transform: translateX(-10px) rotateY(0deg);
+
+    transition: background-color $colorChangeDuration;
+
+    pointer-events: none;
+
+    &_hover
+    {
+        @extend .cursor;
+    
+        animation-name: cursorHover;
+        
+        @keyframes cursorHover
+        {
+            from{transform: translateX(-10px) rotateY(0deg);}
+            to{transform: translateX(-10px) rotateY(180deg);}
+        }
+    }
+
+    @media(max-width: 769px)
+    {
+        display: none;
+    }
+}

@@ -1,0 +1,48 @@
+@import './variables.scss';
+
+.candy
+{
+    position: absolute;
+    display: none;
+
+    width: 2.5em;
+    height: 2.5em;
+
+    animation-direction: normal;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+
+    svg
+    {
+        width: inherit;
+        height: inherit;
+
+        fill: var(--bgElement3);
+    }
+}
+
+.candy_top
+{
+    animation-name: FlyDown;
+
+    @keyframes FlyDown
+    {
+        from{transform: translateY(0) rotate(0deg);}
+        to{transform: translateY(500%) rotate(360deg);}
+    }
+
+    @extend .candy;
+}
+
+.candy_bottom
+{
+    animation-name: FlyUp;
+
+    @keyframes FlyUp
+    {
+        from{transform: translateY(0) rotate(0deg);}
+        to{transform: translateY(-500%) rotate(360deg);}
+    }
+
+    @extend .candy;
+}

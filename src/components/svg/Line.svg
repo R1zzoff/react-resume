@@ -1,0 +1,14 @@
+<svg width="940" height="1" viewBox="0 0 940 1" fill="none" xmlns="http://www.w3.org/2000/svg" className='line'>
+<!-- stroke="url(#green)" -->
+<line class='realLine' x1="4.37114e-08" y1="0.5" x2="940" y2="0.500082" stroke="url(#green)"/>
+<defs>
+<!-- <linearGradient id="red" x1="2.64125e-08" y1="1.98877" x2="940" y2="1.98874" gradientUnits="userSpaceOnUse">
+<stop stop-color="#EA3232" stop-opacity="0"/>
+<stop offset="1" stop-color="#EA3232"/>
+</linearGradient> -->
+<linearGradient id="green" x1="2.64125e-08" y1="1.98877" x2="940" y2="1.98874" gradientUnits="userSpaceOnUse">
+<stop stop-color="#17C147" stop-opacity="0"/>
+<stop offset="1" />
+</linearGradient>
+</defs>
+</svg>

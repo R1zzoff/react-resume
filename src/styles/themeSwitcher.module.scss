@@ -1,0 +1,116 @@
+@import './variables.scss';
+@import './mixins.scss';
+//670
+.themeSwitcher
+{
+    position: absolute;
+
+    width: 3em;
+    height: 10em;
+
+    right: 2em;
+    top: -5em;
+    
+    font-size: 20px;
+
+    transition: rotate 0.6s;
+
+    z-index: 1;
+}
+.themeSwitcher_moon,
+.themeSwitcher_sun
+{
+    @extend .themeSwitcher;
+
+    .themeSwitcher_content
+    {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        width: 100%;
+        height: 100%;
+
+        .lightTheme,
+        .darkTheme
+        {
+            display: flex;
+            position: relative;
+            justify-content: center;
+            align-items: center;
+
+            width: 3em;
+            height: 3em;
+
+            font-size: 20px;
+
+            border: 1px var(--bgElement1) solid;
+            border-radius: 3em;
+
+            transition: border-color $colorChangeDuration;
+
+            svg
+            {
+                width: 2em;
+                height: 2em;
+
+                fill: var(--bgElement1);
+
+                font-size: inherit;
+
+                pointer-events: none;
+
+                transition: fill $colorChangeDuration;
+            }
+        }
+
+        .line
+        {
+            position: relative;
+
+            flex: 1;
+
+            stroke: var(--bgElement1);
+            stroke-width: 1px;
+
+            animation-duration: 7s;
+            animation-timing-function: ease-in-out;
+
+            pointer-events: none;
+
+            @include dashArrayAnimation(5, 12);
+
+            transition: stroke $colorChangeDuration;
+        }
+    }
+}
+
+.themeSwitcher_moon
+{
+    rotate: 0deg;
+}
+.themeSwitcher_sun
+{
+    rotate: 180deg;
+}
+
+@media(max-width: 671px)
+{
+    .themeSwitcher
+    {
+        width: 15%;    
+        height: auto;
+
+        top: -50%;
+        right: unset;
+        left: calc(50% - 15%/2);
+
+        aspect-ratio: 1 / 3.3;
+    }
+    .line
+    {
+        stroke-width: 0.8px !important;
+    }
+}
