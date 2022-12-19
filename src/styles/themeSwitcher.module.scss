@@ -1,6 +1,6 @@
-@import './variables.scss';
-@import './mixins.scss';
-//670
+@use './variables.scss' as var;
+@use './mixins.scss' as mixin;
+
 .themeSwitcher
 {
     position: absolute;
@@ -8,10 +8,17 @@
     width: 3em;
     height: 10em;
 
+    min-width: 2.5em;
+    
+    max-width: 3em;
+    max-height: 10em;
+
     right: 2em;
     top: -5em;
     
     font-size: 20px;
+
+    transform-origin: 50% 50%;
 
     transition: rotate 0.6s;
 
@@ -22,6 +29,8 @@
 {
     @extend .themeSwitcher;
 
+    transform-origin: center;
+
     .themeSwitcher_content
     {
         position: relative;
@@ -30,8 +39,8 @@
         justify-content: center;
         align-items: center;
 
-        width: 100%;
-        height: 100%;
+        width: auto;
+        height: auto;
 
         .lightTheme,
         .darkTheme
@@ -41,20 +50,28 @@
             justify-content: center;
             align-items: center;
 
-            width: 3em;
-            height: 3em;
+            width: 100%;
+            height: 100%;
+            max-width: 3em;
+            max-height: 3em;
 
             font-size: 20px;
 
             border: 1px var(--bgElement1) solid;
             border-radius: 3em;
 
-            transition: border-color $colorChangeDuration;
+            padding: 0.5em;
+
+            transition: border-color var.$colorChangeDuration;
+
+            aspect-ratio: 1/1;
+
+            cursor: pointer;
 
             svg
             {
-                width: 2em;
-                height: 2em;
+                width: 100%;
+                height: 100%;
 
                 fill: var(--bgElement1);
 
@@ -62,7 +79,7 @@
 
                 pointer-events: none;
 
-                transition: fill $colorChangeDuration;
+                transition: fill var.$colorChangeDuration;
             }
         }
 
@@ -70,7 +87,8 @@
         {
             position: relative;
 
-            flex: 1;
+            max-width: 3em;
+            max-height: 4em;
 
             stroke: var(--bgElement1);
             stroke-width: 1px;
@@ -80,9 +98,9 @@
 
             pointer-events: none;
 
-            @include dashArrayAnimation(5, 12);
+            @include mixin.dashArrayAnimation(5, 12);
 
-            transition: stroke $colorChangeDuration;
+            transition: stroke var.$colorChangeDuration;
         }
     }
 }
@@ -96,21 +114,23 @@
     rotate: 180deg;
 }
 
-@media(max-width: 671px)
+@media(max-width: var.$tablet_mobile)
 {
     .themeSwitcher
     {
         width: 15%;    
         height: auto;
 
-        top: -50%;
         right: unset;
-        left: calc(50% - 15%/2);
+        left: 50%;
 
-        aspect-ratio: 1 / 3.3;
+        translate: -50%;
+
+        aspect-ratio: 1 / 3.33;
     }
     .line
     {
+        aspect-ratio: 3/4;
         stroke-width: 0.8px !important;
     }
 }

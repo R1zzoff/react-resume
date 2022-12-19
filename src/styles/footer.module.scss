@@ -1,0 +1,201 @@
+@use './variables.scss' as var;
+@use './mixins.scss' as mixin;
+
+.bracket
+{
+    position: absolute;
+
+    height: 100%;
+
+    top: 0px;
+
+    color: var(--bgElement1);
+
+    font-size: 50px;
+    font-weight: 100;
+    line-height: 1em;
+
+    transition: color var.$colorChangeDuration,
+                font-size 0.1s;
+
+    cursor: pointer;
+
+    // @include mixin.hover(font-size 52px);
+    @include mixin.hover
+    {
+        font-size: 52px;
+    }
+}
+
+.footer
+{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+    height: 6em;
+
+    font-size: 20px;
+    font-weight: 200;
+
+    background-color: var(--bgSite);
+
+    bottom: -10em;
+
+    overflow-x: hidden;
+
+    transition: background-color var.$colorChangeDuration;
+
+    animation-name: footerShow;
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards;
+
+    .secondarySlider
+    {
+        width: 100%;
+        flex: 2;
+
+        background-color: var(--bgSite);
+
+        border-bottom: 1px solid var(--bgElement1);
+
+        transition: background-color var.$colorChangeDuration,
+        border-color var.$colorChangeDuration;
+    }
+    .mainSlider
+    {
+        position: relative;
+        display: flex;
+        align-items: center;
+        
+        width: 7.4em;
+        height: 3.2em;
+
+        font-size: 25px;
+
+        overflow-x: scroll;
+        overflow-y: hidden;
+
+        scroll-snap-type: x mandatory;
+
+        .sliderItem
+        {
+            width: 5em;
+            height: inherit;
+            
+            font-size: 20px;
+
+            color: var(--bgElement1);
+            
+            flex-shrink: 0;
+
+            text-align: center;
+            line-height: 4em;
+
+            scroll-snap-align: center;
+
+            transition: color var.$colorChangeDuration,
+                        font-size 0.2s;
+            user-select: none;
+            cursor: pointer;
+
+            // @include mixin.hover(font-size 21px, text-decoration underline);
+
+            @include mixin.hover
+            {
+                font-size: 21px;
+                text-decoration: underline;
+            }
+
+            &_active
+            {
+                @extend .sliderItem;
+
+                font-size: 21px;
+                text-decoration: underline;
+            }
+        }
+        
+    }
+    .mainSlider_add
+    {
+        position: absolute;
+        display: flex;
+        
+        width: 7.4em;
+        height: 3.2em;
+
+        bottom: 0;
+
+        font-size: 25px;
+
+        overflow: visible;
+
+        .mainSlider_add_content
+        {
+            position: relative;
+            display: inherit;
+
+            width: inherit;
+            height: inherit;
+
+            .leftBracket
+            {
+                @extend .bracket;
+
+                left: -0.5em;
+
+            }
+
+            .rightBracket
+            {
+                @extend .bracket;
+
+                right: -0.5em;
+            }
+
+            svg
+            {
+                position: absolute;
+
+                height: 100%;
+
+                left: 0px;
+                bottom: 0px;
+
+                pointer-events: none;
+
+                z-index: 1;
+
+                & stop:nth-child(1),
+                & stop:nth-child(2),
+                & stop:nth-child(3),
+                & stop:nth-child(4)
+                {
+                    stop-color: var(--bgSite);
+
+                    transition: stop-color var.$colorChangeDuration;
+                }
+            }
+        }
+    }
+}
+
+.footer_disabled
+{
+    @extend .footer;
+
+    animation-name: none;
+}
+
+ @keyframes footerShow
+{
+    0%{
+        bottom: -10em;
+    }
+    100%{
+        bottom: 0em;
+    }
+}

@@ -4,24 +4,28 @@ import style from '../styles/cursor.module.scss';
 
 export const CustomCursor = ({isHovering}) =>
 {
-    const cursor = useRef(null);
+  const cursor = useRef(null);
 
-    useEffect(() =>
+  useEffect(() =>
+  {
+    const handleMouseMove = (e) =>
     {
-        const handleMouseMove = (e) =>
-        {
-            cursor.current.style.left = `${e.clientX}px`;
-            cursor.current.style.top = `${e.clientY}px`;
-        }
+      cursor.current.style.left = `${e?.pageX}px`;
+      cursor.current.style.top = `${e?.pageY}px`;
 
-        document.addEventListener('mousemove', handleMouseMove);
-        
-        console.log('cursor rendered');
-    },[]);
+      // console.log(`handleMouseMove pageX: ${e?.pageX}; pageY: ${e?.pageY};`);
+    }
 
-    return(
-        <div className={isHovering ? style.cursor_hover : style.cursor} ref={cursor}></div>
-    )
+    document.addEventListener('mousemove', handleMouseMove);
+      
+    console.log('cursor rendered');
+
+    return () => document.removeEventListener('mousemove', handleMouseMove);
+  },[]);
+
+  return(
+    <div className={isHovering ? style.cursor_hover : style.cursor} ref={cursor}></div>
+  )
 }
 
 export default CustomCursor;

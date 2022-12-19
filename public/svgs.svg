@@ -62,13 +62,7 @@
     <symbol id='theme_line' viewBox='0 0 1 80'>
         <line x1="0.5" y1="-2.18557e-08" x2="0.500004" y2="80"/>
     </symbol>
-    <!-- <symbol id='line' viewBox='0 0 940 1'>
-        <line x1="4.37114e-08" y1="0.5" x2="940" y2="0.500082" stroke="url(#paint0_linear_53_160)"/>
-        <defs>
-            <linearGradient id="paint0_linear_53_160" x1="2.64125e-08" y1="1.98877" x2="940" y2="1.98874" gradientUnits="userSpaceOnUse">
-                <stop stop-color="#EA3232" stop-opacity="0"/>
-                <stop offset="1" stop-color="#EA3232"/>
-            </linearGradient>
-        </defs>
-    </symbol> -->
+    <symbol id='circle' viewBox='0 0 60 60'>
+        <circle cx="30" cy="30" r="29"/>
+    </symbol>
 </svg>
