@@ -1,3 +1,6 @@
+//  Here I store variables that I use in different places in this projects
+//  Some variables are described \/ \/ \/ 
+
 export const THEMES = 
 [
   //Light

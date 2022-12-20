@@ -8,6 +8,17 @@ import {ReactComponent as Line} from './svg/Line.svg';
 
 import style from '../styles/header.module.scss';
 
+// This is a header component. It's created with flex container with 2 main children
+//--------------------------------------------------------------------------------
+//  Left one is 'Welcome' child. Text 'welcome' is actually a svg file and not just a text
+//  Added little feature, when mouse enter or leave 'welcome' div,
+//  There will be elements flying around in the background
+//--------------------------------------------------------------------------------
+//  Right child consists of 2 elements: A span 'created by...' and svg line gradient.
+//--------------------------------------------------------------------------------
+//  Also separated from this 2 children there is a 'ThemeSwitcher' component
+//  It is responsible for changing the color theme of the website.
+
 const Header = ({themeControl}) =>
 {
   const { handleMouseEnter, handleMouseLeave,

@@ -7,6 +7,17 @@ import { SCROLLER } from '../helpers/Variables';
 
 import style from '../styles/footer.module.scss';
 
+//  Still in development!
+
+//  This is a footer component. It consist of 2 'sliders'.
+//  Main 'slider' is a 'slider' with different elements that are imported from outside.
+//  I use custom hook to create infinity scrolling for main 'slider'.
+//  It works only on PC for now.
+//  Also there is 2 brackets on the left and right side of the 'slider'
+//  These 2 brackets are acutally a buttons that can be pressed to scroll
+//  ----------------------------------------------------------------------------------
+//  Secondary 'slider' depends on selected element in main 'slider'.
+
 const Footer = ({activatedBtns}) =>
 {
 

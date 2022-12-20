@@ -1,6 +1,8 @@
 import { CANDY, SCROLLER } from "./Variables";
 import { getRandomInteger, getRandomBool, getRandomFloat } from "./Functions";
 
+//  Here I store all reducers that I use in components and custom hooks.
+
 export const candyReducer = (state, action) =>
 {
   // console.log('Candy useReducer');

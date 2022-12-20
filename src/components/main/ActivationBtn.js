@@ -1,5 +1,9 @@
 import { useState, useEffect } from "react"
 
+//  This is an ActivationBtn component. It is used in Main component.
+//  This components represents one button in Main component.
+//  When four different ActivationBtn are pressed, the main window will show up.
+
 const ActivationBtn = ({setActivatedBtns, style}) =>
 {
   const [isActived, setIsActivated] = useState(false)

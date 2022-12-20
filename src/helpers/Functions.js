@@ -1,3 +1,5 @@
+//  Here I store different abstract function that I use in components.
+
 export const getRandomFloat = (min, max) =>
 {
   return (Math.random() * (2 - 1) + 1).toFixed(1);

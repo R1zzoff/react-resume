@@ -1,8 +1,13 @@
 import { useState, useEffect } from "react";
 
+//  Importing js-cookie plugin
 import JsCookie from 'js-cookie';
 
 import { THEMES, COOKIE_THEME } from "../helpers/Variables";
+
+//  This custom hook is used in 'app' component
+//  It is responsible for theme changing and saving a cookie with the new theme.
+//  Also says when everything is loaded.
 
 const useInit = () =>
 {

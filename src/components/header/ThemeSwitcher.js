@@ -7,6 +7,14 @@ import { THEMES, COOKIE_THEME } from "../../helpers/Variables";
 
 import style from '../../styles/themeSwitcher.module.scss';
 
+//  This is a ThemeSwitcher component. It is used in Header component.
+//  It is responsible for toggling the theme.
+//---------------------------------------------------------------------
+//  It consist of 3 main elements:
+//    Sun element that shows when it is light theme,
+//    Moon element that shows when it is dark theme,
+//    And decorative line that 'connects' these two elements.
+
 const ThemeSwitcher = ({themeControl}) =>
 {
   const {theme, setTheme} = themeControl;

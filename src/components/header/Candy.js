@@ -5,6 +5,9 @@ import { candyReducer } from "../../helpers/Reducers";
 
 import style from '../../styles/candy.module.scss'
 
+//  This is a Candy component. It is used in Header component.
+//  This component is a single 'candy' that flies around in the 'welcome' svg
+
 const Candy = ({candyState, setCandyState, index}) =>
 {
   const [state, dispatch] = useReducer(candyReducer, CANDY.INITIAL_STATE);

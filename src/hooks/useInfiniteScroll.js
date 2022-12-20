@@ -1,8 +1,14 @@
 import { useEffect, useReducer, useRef, useCallback } from 'react'
 
+//  reducer is imported
 import { scrollerReducer } from '../helpers/Reducers';
 
+//  Some variables are imported
 import { SCROLLER } from '../helpers/Variables';
+
+//  This custom hook is used in footer component
+//  It is responsible for infinity scrolling.
+//  Infinity scrolling is working only on PC for now.
 
 const useInfiniteScroll = () =>
 {

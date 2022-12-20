@@ -2,12 +2,21 @@ import { useEffect, useState} from "react";
 
 import useInit from './hooks/useInit'
 
+//  In the beginning I decided to create a custom cursor, but later on
+//  I changed my mind, so I just disabled it for now.
+
 import { CursorHoverContext } from "./helpers/Context";
 
 import CustomCursor from "./components/CustomCursor";
+
 import Header from "./components/Header";
 import Main from "./components/Main";
 import Footer from "./components/Footer";
+
+//  This is an 'app' component that collects all different components
+//  In this project I use scss module styling
+
+//  Some functionality is imported from outside (useInit custom hook)
 
 function App()
 {
