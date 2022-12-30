@@ -1,0 +1,215 @@
+@use '../variables.scss' as var;
+@use '../mixins.scss' as mixin;
+
+.circle
+{
+  position: absolute;
+
+  width: 3em;
+  height: 3em;
+
+  font-size: inherit;
+
+  transition: width 0.2s,
+              height 0.2s;
+
+  cursor: pointer;
+  overflow: hidden;
+
+  @include mixin.hover
+  {
+    width: 3.2em;
+    height: 3.2em;
+  }
+}
+
+.circleSvg
+{
+  width: 100%;
+  height: 100%;
+
+  stroke: var(--bgElement1);
+  stroke-width: 1px;
+
+  fill: transparent;
+  
+  transition: stroke var.$colorChangeDuration,
+  fill var.$colorChangeDuration ease-out;
+
+  animation-duration: 18s;
+  animation-timing-function: linear;
+
+  @include mixin.dashArrayAnimation(40, 32);
+}
+
+.circleActivated
+{
+  &::before
+  {
+    content: '';
+
+    position: absolute;
+
+    width: 40%;
+    height: 40%;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    border-radius: 5em;
+    border: 4px solid var(--bgElement1);
+
+    transition: border-color var.$colorChangeDuration;
+  }
+}
+
+.main
+{
+  position: relative;
+
+  width: calc(100% - var.$mainPadding * 2);
+  height: calc(24.5em - var.$mainPadding * 2);
+
+  margin: auto;
+  margin-top: var.$mainPadding;
+  margin-bottom: var.$mainPadding;
+
+  font-size: 20px;
+
+  background-color: var(--bgSite);
+
+  transition: background-color var.$colorChangeDuration;
+
+  overflow: visible;
+
+  .circle_tl
+  {
+    @extend .circle;
+
+    left: 0;
+    top: 0;
+
+    transform: translate(-50%, -50%);
+
+    svg
+    {
+      @extend .circleSvg;
+
+      animation-direction: alternate-reverse;
+    }
+  
+    &_active
+    {
+      @extend .circle_tl;
+      @extend .circleActivated;
+    }
+  }
+
+    .circle_tr
+  {
+    @extend .circle;
+    
+    top: 0;
+    right: 0;
+
+    transform: translate(50%, -50%);
+
+    svg
+    {
+      @extend .circleSvg;
+    }
+
+    &_active
+    {
+      @extend .circle_tr;
+      @extend .circleActivated;
+    }
+  }
+  .circle_bl
+  {
+    @extend .circle;
+    
+    left: 0;
+    bottom: 0;
+
+    transform: translate(-50%, 50%);
+
+    svg
+    {
+      @extend .circleSvg;
+
+      animation-direction: alternate-reverse;
+      animation-delay: -15s;
+    }
+
+    &_active
+    {
+      @extend .circle_bl;
+      @extend .circleActivated;
+    }
+  }
+  .circle_br
+  {
+    @extend .circle;
+
+    right: 0;
+    bottom: 0;
+
+    transform: translate(50%, 50%);
+
+    svg
+    {
+      @extend .circleSvg;
+
+      animation-delay: -25s;
+    }
+
+    &_active
+    {
+      @extend .circle_br;
+      @extend .circleActivated;
+    }
+  }
+
+  .main_content
+  {
+    position: relative;
+
+    width: 60%;
+    height: 15em;
+
+    font-size: inherit;
+
+    margin: auto;
+
+    opacity: 0;
+    pointer-events: none;
+
+    color: var(--bgElement1);
+
+    transition: opacity 8s, color var.$colorChangeDuration;
+  }
+}
+@include mixin.Breakpoint(var.$tablet)
+{
+  .circle
+  {
+    font-size: 18px;
+  }
+}
+@include mixin.Breakpoint(var.$mobile_small)
+{
+  .main
+  {
+    width: 80%;
+    height: calc(24.5em - var.$mainPadding/2);
+
+    margin-bottom: 6em;
+  }
+  .circle
+  {
+    font-size: 12px;
+  }
+}

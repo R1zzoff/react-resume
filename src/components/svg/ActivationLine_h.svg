@@ -1,0 +1,10 @@
+<svg width="1100" height="2" viewBox="0 0 1100 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 1H1099.07" stroke="url(#activationLine_h)"/>
+<defs>
+<linearGradient id="activationLine_h" x1="1099.07" y1="1" x2="-0.304835" y2="1" gradientUnits="userSpaceOnUse">
+<stop stop-opacity="0"/>
+<stop offset="0.5"/>
+<stop offset="1" stop-opacity="0"/>
+</linearGradient>
+</defs>
+</svg>

@@ -66,7 +66,7 @@ export const SLIDER_MAIN_ITEMS =
     NAME: 'API'
   },
   {
-    NAME: 'SMTH'
+    NAME: 'RNDM'
   }
 ]
 export const SCROLLER =

@@ -11,13 +11,13 @@
 
 //     transition: fill $bgTransition;
 // }
-// @mixin singleBreakpoint($screenWidth)
-// {
-//     @media (max-width: $screenWidth+'px')
-//     {
-//         @content;
-//     }
-// }
+@mixin Breakpoint($screenWidth)
+{
+    @media (max-width: ($screenWidth))
+    {
+        @content;
+    }
+}
 @mixin dashArrayAnimation($start, $end)
 {
     &
